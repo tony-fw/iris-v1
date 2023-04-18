@@ -11,7 +11,7 @@ import os
 import json
 
 st.set_page_config(
-    page_title="BERT Keyword Extractor",
+    page_title="Irisv1",
     page_icon="🎈",
 )
 
@@ -36,24 +36,22 @@ c30, c31, c32 = st.columns([2.5, 1, 3])
 
 with c30:
     # st.image("logo.png", width=400)
-    st.title("🔑 BERT Keyword Extractor")
+    st.title("Word match & extract for training")
     st.header("")
 
+# with st.expander("ℹ️ - About this app", expanded=True):
 
+#     st.write(
+#         """  
+# 	- using the KeyBERT library to extract keywords for labeling, this then does the handoff via a trasnformer to create a data set available to load to a model. 
+# 	- the extraction technique leverages multiple NLP embeddings and relies on [Transformers] (https://huggingface.co/transformers/) 🤗 to create keywords/keyphrases that are most similar to a document or question.
+# 	    """
+#     )
 
-with st.expander("ℹ️ - About this app", expanded=True):
-
-    st.write(
-        """     
--   The *BERT Keyword Extractor* app is an easy-to-use interface built in Streamlit for the amazing [KeyBERT](https://github.com/MaartenGr/KeyBERT) library from Maarten Grootendorst!
--   It uses a minimal keyword extraction technique that leverages multiple NLP embeddings and relies on [Transformers] (https://huggingface.co/transformers/) 🤗 to create keywords/keyphrases that are most similar to a document.
-	    """
-    )
-
-    st.markdown("")
+#     st.markdown("")
 
 st.markdown("")
-st.markdown("## **📌 Paste document **")
+st.markdown("## **📌 Paste copy here **")
 with st.form(key="my_form"):
 
 
@@ -62,7 +60,7 @@ with st.form(key="my_form"):
         ModelType = st.radio(
             "Choose your model",
             ["DistilBERT (Default)", "Flair"],
-            help="At present, you can choose between 2 models (Flair or DistilBERT) to embed your text. More to come!",
+            help="Choose between 2 models (Flair or DistilBERT) to embed your text. This change to be the clients model when added via cohere.",
         )
 
         if ModelType == "Default (DistilBERT)":
